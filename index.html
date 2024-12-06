@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Cards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Подключение Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Подключение внешнего CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- Заголовок -->
+    <header>
+        <h1>Add Your Profile Card</h1>
+    </header>
+
+    <!-- Кнопка для открытия модального окна -->
+    <button class="add-button">Add New Card</button>
+
+    <!-- Контейнер для карточек -->
+    <div class="container">
+        <!-- Предустановленные карточки будут добавляться здесь через JavaScript -->
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal">
+        <div class="modal-content">
+            <button class="close-button">X</button>
+            <h2>Add a New Card</h2>
+            <form>
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" required>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" required>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" required>
+
+                <label for="profession">Profession:</label>
+                <input type="text" id="profession" required>
+
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" required>
+
+                <label for="country">Country:</label>
+                <input type="text" id="country" required>
+
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Подключение внешнего JavaScript -->
+    <script src="./app.js"></script>
+
+</body>
+</html>

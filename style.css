@@ -1,0 +1,238 @@
+/* Общий стиль страницы */
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+
+}
+
+/* Заголовок */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid rgba(58, 134, 255, 0.3);
+}
+
+header h1 {
+    margin: 0;
+    color: #3a86ff;
+    text-shadow: 0 0 15px #3a86ff;
+    font-size: 32px;
+}
+
+/* Кнопка "Add New Card" */
+.add-button {
+    background: linear-gradient(90deg, #3a86ff, #8338ec);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: all 0.3s;
+}
+
+.add-button:hover {
+    background: linear-gradient(90deg, #8338ec, #3a86ff);
+    box-shadow: 0 0 20px rgba(58, 134, 255, 0.8);
+    transform: scale(1.1);
+}
+
+/* Контейнер для карточек */
+.container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    justify-content: center;
+}
+
+/* Стиль карточек */
+.card {
+    background: linear-gradient(145deg, #222, #333);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    width: 320px;
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.8), 
+        0 0 20px rgba(58, 134, 255, 0.4), 
+        inset 0 0 15px rgba(58, 134, 255, 0.2);
+    text-align: left;
+    transition: transform 0.5s, box-shadow 0.5s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Эффекты при наведении на карточку */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.8), 
+        0 0 40px rgba(58, 134, 255, 0.8), 
+        inset 0 0 20px rgba(58, 134, 255, 0.4);
+}
+
+/* Заголовок карточки */
+.card h2 {
+    margin: 0 0 20px;
+    color: #3a86ff;
+    font-size: 22px;
+    text-align: center;
+    text-shadow: 0 0 10px #3a86ff;
+}
+
+/* Список информации в карточке */
+.card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card li {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 1.6;
+    position: relative;
+}
+
+.card li::before {
+    content: '●';
+    color: #3a86ff;
+    margin-right: 10px;
+    font-size: 10px;
+}
+
+/* Модальное окно */
+.modal {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Скрыто за пределами экрана */
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 15, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: left 0.5s ease-in-out; /* Плавный выезд */
+}
+
+/* Активное состояние модального окна (видимо) */
+.modal.active {
+    left: 0; /* Выезжает с левой стороны */
+}
+
+/* Содержимое модального окна */
+.modal-content {
+    background: linear-gradient(145deg, #222, #333);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.8), 
+        0 0 20px rgba(58, 134, 255, 0.4), 
+        inset 0 0 15px rgba(58, 134, 255, 0.2);
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Заголовок модального окна */
+.modal-content h2 {
+    color: #3a86ff;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-shadow: 0 0 10px #3a86ff;
+}
+
+/* Форма в модальном окне */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Метки формы */
+.modal-content label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: left;
+}
+
+/* Поля ввода формы */
+.modal-content input {
+    background: #1e1e1e;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.modal-content input:focus {
+    border: 2px solid #3a86ff;
+    box-shadow: 0 0 10px rgba(58, 134, 255, 0.6);
+}
+
+/* Кнопка "Add" в модальном окне */
+.modal-content button[type="submit"] {
+    background: linear-gradient(90deg, #3a86ff, #8338ec);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.modal-content button[type="submit"]:hover {
+    background: linear-gradient(90deg, #8338ec, #3a86ff);
+    box-shadow: 0 0 20px rgba(58, 134, 255, 0.8);
+    transform: scale(1.1);
+}
+
+/* Кнопка "Close" модального окна */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.close-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #3a86ff;
+    color: #3a86ff;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
